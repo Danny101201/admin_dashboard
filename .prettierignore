@@ -1,0 +1,22 @@
+# IDE/Editor
+.vscode
+.idea
+
+# Package Manager
+package.json
+package-lock.json
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# related
+**/public/**/*
+**/cloudbuild/**/*
