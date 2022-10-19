@@ -1,30 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import {
-  ToolTips,
-  Ecommerce,
-  Orders,
-  Employees,
-  Customers,
-  Kanban,
-  Editor,
-  Calendar,
-  ColorPicker,
-  Line,
   Area,
   Bar,
-  Pie,
-  Financial,
+  Calendar,
   ColorMapping,
-  Pyramid,
-  Stacked,
-  SlideBar,
+  ColorPicker,
+  Customers,
+  Ecommerce,
+  Editor,
+  Employees,
+  Financial,
+  Kanban,
+  Line,
   Navbar,
+  Orders,
+  Pie,
+  Pyramid,
+  SlideBar,
+  Stacked,
+  ToolTips,
 } from './components';
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState<boolean>(false);
+  const [activeMenu, setActiveMenu] = useState<boolean>(true);
+  useEffect(() => {
+    if (activeMenu) {
+      console.log('activeMenu');
+    }
+  }, []);
   return (
     <div>
       <BrowserRouter>
