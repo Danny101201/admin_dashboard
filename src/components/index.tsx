@@ -30,4 +30,5 @@ export { default as Financial } from './charts/Financial.components';
 export { default as Line } from './charts/Line.components';
 export { default as Pie } from './charts/Pie.components';
 export { default as Pyramid } from './charts/Pyramid.components';
+export { default as SparkLine } from './charts/SparkLine.components';
 export { default as Stacked } from './charts/Stacked.components';

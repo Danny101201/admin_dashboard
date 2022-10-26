@@ -16,18 +16,18 @@ import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
-import avatar from './avatar.jpg';
-import avatar2 from './avatar2.jpg';
-import avatar3 from './avatar3.png';
-import avatar4 from './avatar4.jpg';
-import product1 from './product1.jpg';
-import product2 from './product2.jpg';
-import product3 from './product3.jpg';
-import product4 from './product4.jpg';
-import product5 from './product5.jpg';
-import product6 from './product6.jpg';
-import product7 from './product7.jpg';
-import product8 from './product8.jpg';
+import avatar from './avatar/avatar.jpg';
+import avatar2 from './avatar/avatar2.jpg';
+import avatar3 from './avatar/avatar3.png';
+import avatar4 from './avatar/avatar4.jpg';
+import product1 from './product/product1.jpg';
+import product2 from './product/product2.jpg';
+import product3 from './product/product3.jpg';
+import product4 from './product/product4.jpg';
+import product5 from './product/product5.jpg';
+import product6 from './product/product6.jpg';
+import product7 from './product/product7.jpg';
+import product8 from './product/product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -543,7 +543,7 @@ export const earningData = [
     title: 'Customers',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
-    pcColor: 'red-600',
+    pcColor: 'red',
   },
   {
     icon: <BsBoxSeam />,
@@ -552,7 +552,7 @@ export const earningData = [
     title: 'Products',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
+    pcColor: 'green',
   },
   {
     icon: <FiBarChart />,
@@ -562,7 +562,7 @@ export const earningData = [
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
-    pcColor: 'green-600',
+    pcColor: 'green',
   },
   {
     icon: <HiOutlineRefresh />,
@@ -571,7 +571,7 @@ export const earningData = [
     title: 'Refunds',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
+    pcColor: 'red',
   },
 ];
 
@@ -2836,13 +2836,17 @@ export const dropdownData = [
     Time: 'May 2021',
   },
 ];
-export const SparklineAreaData = [
-  { x: 1, yval: 2 },
-  { x: 2, yval: 6 },
-  { x: 3, yval: 8 },
-  { x: 4, yval: 5 },
-  { x: 5, yval: 10 },
-];
+export const SparklineAreaData = {
+  labels: [1, 2, 3, 4, 5],
+  datasets: [
+    {
+      label: 'Spark',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [2, 6, 8, 5, 10],
+    },
+  ],
+};
 
 export const lineCustomSeries = [
   {

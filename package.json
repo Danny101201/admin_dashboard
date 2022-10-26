@@ -6,9 +6,9 @@
     "@syncfusion/ej2": "^19.4.48",
     "@syncfusion/ej2-react-buttons": "^20.3.50",
     "@syncfusion/ej2-react-calendars": "^19.4.48",
-    "@syncfusion/ej2-react-charts": "^19.4.50",
+    "@syncfusion/ej2-react-charts": "^19.4.54",
     "@syncfusion/ej2-react-dropdowns": "^19.4.52",
-    "@syncfusion/ej2-react-grids": "^19.4.50",
+    "@syncfusion/ej2-react-grids": "^19.4.56",
     "@syncfusion/ej2-react-inputs": "^19.4.52",
     "@syncfusion/ej2-react-kanban": "^19.4.48",
     "@syncfusion/ej2-react-popups": "^19.4.52",
@@ -21,11 +21,16 @@
     "@types/node": "^16.11.68",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "chart.js": "^3.9.1",
+    "i": "^0.3.7",
+    "npm": "^8.19.2",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-tooltip": "^4.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,14 +47,7 @@
       "react-app",
       "react-app/jest",
       "plugin:react-hooks/recommended"
-    ],
-    "sort-imports": ["error", {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": false,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-        "allowSeparatedGroups": false
-    }]
+    ]
   },
   "browserslist": {
     "production": [

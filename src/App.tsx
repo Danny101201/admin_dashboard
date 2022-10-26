@@ -23,14 +23,11 @@ import {
   Stacked,
   ToolTips,
 } from './components';
+import { useStateContext } from './Context/ContextProvider';
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState<boolean>(true);
-  useEffect(() => {
-    if (activeMenu) {
-      console.log('activeMenu');
-    }
-  }, []);
+  const { activedMenu, setActivedMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -39,20 +36,19 @@ function App() {
             <ToolTips text="setting" />
           </div>
         </div>
-        {activeMenu ? (
-          <div className="w-72 fixed slidebar dark:bg-secondary-dark-bg dark:text-white bg-white">
-            <SlideBar />
-          </div>
-        ) : (
-          <div className="w-0 dark:bg-secondary-dark-bg dark:text-white">
+        {activedMenu && (
+          <div
+            className="w-72 fixed slidebar text-slate-900 dark:bg-secondary-dark-bg dark:text-white bg-white"
+            style={{ zIndex: 99999999 }}
+          >
             <SlideBar />
           </div>
         )}
-        <div className={`bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
+        <div className={`bg-main-bg min-h-screen w-full ${activedMenu ? 'md:ml-72 w-[calc(100%_-_18rem)]' : 'flex-2'}`}>
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg  dark:text-white navbar w-full">
             <Navbar />
           </div>
-          <div>
+          <div className="pt-14 px-10">
             <Routes>
               {/* dashboard  */}
               <Route path="/" element={<Ecommerce />} />
