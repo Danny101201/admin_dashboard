@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
@@ -9,6 +9,7 @@ import {
   medicalproBranding,
   recentTransactions,
   weeklyStats,
+  stackedChartData,
   dropdownData,
   SparklineAreaData,
   ecomPieChartData,
@@ -16,9 +17,21 @@ import {
 import { useStateContext } from '../../Context/ContextProvider';
 function Ecommerce() {
   const { currrentColor } = useStateContext();
+  const [stackData, setStackData] = useState<{ year: string; value: number; type: string }[]>([]);
+  useEffect(() => {
+    const result = new Array(...stackedChartData).reduce((acc, stack, index) => {
+      stack.forEach((item) => {
+        const newItem = { year: item.x, value: item.y, type: index === 0 ? 'Expense' : 'Budget' };
+        // @ts-ignore
+        acc.push(newItem);
+      });
+      return acc;
+    }, []);
+    setStackData(result as unknown as { year: string; value: number; type: string }[]);
+  }, []);
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap justify-center gap-5">
+      <div className="flex flex-wrap  gap-5">
         <div className="bg-white dark:text-gray-200  h-44 rounded-xl w-full lg:w-80  bg-hero-pattern bg-no-repeat bg-cover bg-center flex items-center justify-start">
           <div>
             <p className="text-gray-400 font-blod">Earnings</p>
@@ -48,7 +61,7 @@ function Ecommerce() {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-10 flex-wrap">
+      <div className="flex items-center justify-center  gap-10 flex-wrap relative">
         <div className="md:w-780 bg-white dark:text-gray-200  m-3 p-4 rounded-2xl shadow-sm">
           <div className="flex justify-between items-center ">
             <p className="text-black text-xl font-bold">Revenue Updates</p>
@@ -67,7 +80,7 @@ function Ecommerce() {
               </div>
             </div>
           </div>
-          <div className="mt-10 grid grid-cols-2">
+          <div className="mt-10 flex gap-5">
             <div className="grid gap-5">
               <div>
                 <div className="font-semibold text-3xl text-black flex items-center">
@@ -81,23 +94,18 @@ function Ecommerce() {
                 <span className="text-gray-400 text-base inline-block mt-2">Expense</span>
               </div>
               <div>
-                <SparkLine
-                  currentColor={currrentColor}
-                  id="line-sparkLine"
-                  type="linear"
-                  height={150}
-                  width={250}
-                  data={SparklineAreaData}
-                  color={currrentColor}
-                />
+                <SparkLine />
               </div>
               <div>
                 <Button bgColor={currrentColor} color="white" text="Download Report" />
               </div>
             </div>
-            <div></div>
+            <div className="flex-1">
+              <Stacked chartdata={stackData} />
+            </div>
           </div>
         </div>
+        <div className="bg-red-500 flex-1 h-[200px]"></div>
       </div>
     </div>
   );
