@@ -2915,6 +2915,7 @@ export const ecomPieChartData = [
   { x: '2020', y: 18, text: '25%' },
   { x: '2021', y: 18, text: '25%' },
 ];
+export const miniStackdata = [274, 337, 81, 497, 269];
 
 export const stackedChartData = [
   [

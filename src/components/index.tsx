@@ -28,6 +28,8 @@ export { default as Bar } from './charts/Bar.components';
 export { default as ColorMapping } from './charts/ColorMapping.components';
 export { default as Financial } from './charts/Financial.components';
 export { default as Line } from './charts/Line.components';
+export { default as MiniStack } from './charts/MiniStack.components';
+export { default as MiniPie } from './charts/MiniPie.components';
 export { default as Pie } from './charts/Pie.components';
 export { default as Pyramid } from './charts/Pyramid.components';
 export { default as SparkLine } from './charts/SparkLine.components';
